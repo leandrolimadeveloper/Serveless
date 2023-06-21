@@ -26,17 +26,36 @@ const serverlessConfiguration: AWS = {
                 Action: ["dynamodb:*"],
                 Resource: ["*"],
             },
+            {
+                Effect: "Allow",
+                Action: ["s3:*"],
+                Resource: ["*"],
+            },
         ],
     },
     // import the function via paths
     functions: {
         generateCertificate: {
             handler: "./src/functions/generateCertificate.handler",
+            timeout: 90,
             events: [
                 {
                     http: {
                         path: "generateCertificate",
                         method: "post",
+
+                        cors: true,
+                    },
+                },
+            ],
+        },
+        verifyCertificate: {
+            handler: "./src/functions/verifyCertificate.handler",
+            events: [
+                {
+                    http: {
+                        path: "verifyCertificate/{id}",
+                        method: "get",
 
                         cors: true,
                     },
