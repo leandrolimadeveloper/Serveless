@@ -41,3 +41,6 @@ $ cd Serverless
 
 -   Configurar as credenciais do usuário
 -   Rode `yarn deploy` para subir o projeto para AWS Lambda
+
+## 📄 Licença
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
